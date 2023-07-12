@@ -85,7 +85,7 @@ def form():
     username = request.form['username']
     user = checkUserAvailability(username)
     var.user_id, var.user_username = user.get("_id"), user.get("username")
-    data = get_json_data("myApp/assets/questions.json")
+    data = get_json_data("assets/questions.json")
     return render_template('form.html', data=data, username=var.user_username)
 
 
