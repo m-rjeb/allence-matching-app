@@ -1,0 +1,35 @@
+<div class="modal fade" id="indexModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog  modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="indexModalLabel">Username</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div>
+                    <form action="/index-modal" method="POST">
+                        <div class="form-group">
+                            <label for="exist-username"> Enter your username to get your results: </label>
+                            <input
+                                type="text"
+                                class="form-control"
+                                id="exist-username"
+                                name="exist-username"
+                                required
+                            />
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button
+                    id="index-resultsBtn"
+                    class="btn btn-primary"
+                    onclick="getResults()"
+                >
+                    <span id="index-buttonText">Get Results</span>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

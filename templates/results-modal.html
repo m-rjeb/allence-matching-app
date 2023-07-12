@@ -1,0 +1,71 @@
+<div class="modal fade" id="indexModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog  modal-dialog-centered  modal-dialog-scrollable">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="indexModalLabel2">Results</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div id="spinner" class="d-flex align-items-center">
+                    <strong>Loading...</strong>
+                    <div class="spinner-border ms-auto" role="status" aria-hidden="true"></div>
+                </div>
+                <div id="content">
+                    <span>Best match for you is: <strong>{{best_match}}</strong></span>
+                    <div>
+                        Other rates:
+                        <ul>
+                            {% for index in range(length) %}
+                            <li>
+                                <span> You & {{other_usernames[index]}} :</span>
+                                <div
+                                    class="progress"
+                                    role="progressbar"
+                                    aria-label="Success striped example"
+                                    aria-valuenow="{{scores[index]}}"
+                                    aria-valuemin="0"
+                                    aria-valuemax="100"
+                                    style="height: 20px"
+                                >
+                                    {% if scores[index] <= 25 %}
+                                    <div
+                                        class="progress-bar progress-bar-striped bg-danger"
+                                        style="width: {{scores[index]}}%; font-size: 15px; font-weight: 600; height: 20px"
+                                    >
+                                        {{scores[index]}}%
+                                    </div>
+                                    {% elif 25 < scores[index] <= 50%}
+                                    <div
+                                        class="progress-bar progress-bar-striped bg-warning"
+                                        style="width: {{scores[index]}}%; font-size: 15px; font-weight: 600; height: 20px"
+                                    >
+                                        {{scores[index]}}%
+                                    </div>
+                                    {% elif 50 < scores[index] <= 75%}
+                                    <div
+                                        class="progress-bar progress-bar-striped bg-info"
+                                        style="width: {{scores[index]}}%; font-size: 15px; font-weight: 600; height: 20px"
+                                    >
+                                        {{scores[index]}}%
+                                    </div>
+                                    {% else %}
+                                    <div
+                                        class="progress-bar progress-bar-striped bg-success"
+                                        style="width: {{scores[index]}}%; font-size: 15px; font-weight: 600; height: 20px"
+                                    >
+                                        {{scores[index]}}%
+                                    </div>
+                                    {% endif %}
+                                </div>
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary" data-bs-dismiss="modal">Bye Bye!</button>
+            </div>
+        </div>
+    </div>
+</div>

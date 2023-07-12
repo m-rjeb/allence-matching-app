@@ -1,0 +1,97 @@
+/* index.html */
+#index {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#index-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 500px;
+    width: 500px;
+    border: 1px solid black;
+}
+
+#index-container h2 {
+    margin-bottom: 60px;
+}
+
+.btn-primary {
+    margin-top: 60px;
+    width: 200px;
+}
+
+.form-control {
+    margin-top: 10px;
+}
+
+
+
+
+/* form.html */
+.custom-button {
+    background-color: transparent;
+    border: 3px solid red;
+    border-radius: 40%;
+    transition: background-color 0.3s;
+    margin: 10px;
+}
+
+.btn-secondary {
+    border: 3px solid grey;
+    width: 20px;
+    height: 25px;
+}
+
+.btn-success {
+    border: 3px solid green;
+}
+
+.btn-danger.clicked {
+    background-color: red;
+}
+
+.btn-success.clicked {
+    background-color: green;
+}
+
+.btn-secondary.clicked {
+    background-color: grey;
+}
+
+#header {
+    font-weight: 600;
+    font-size: 27px;
+    text-align: center;
+    margin: 40px;
+}
+
+#buttons {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+#resultsBtn {
+    margin-top: 50px;
+    margin-bottom: 50px;
+    border-radius: 30px;
+    height: 50px;
+    font-weight: 700;
+    font-size: 20px;
+    letter-spacing: 2px;
+}
+
+#spinnerIcon {
+    display: none;
+    width: 2rem;
+    height: 2rem;
+}
+
+#buttonText.hidden {
+    display: none;
+}
