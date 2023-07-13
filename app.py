@@ -60,7 +60,12 @@ def display(user_username: str, user_id: str, users_count: int, all_users: list,
                     other_id: str = all_users[j].get("_id")
                     other_value = {"name": user_username, "score": score}
                     other_matching_list: list = all_users[j].get("matching_list").copy()
-                    other_matching_list.append(other_value)
+                    for x in other_matching_list:
+                        if x.get("name") == user_username:
+                            x.update(other_value)
+                            break
+                    else:
+                        other_matching_list.append(other_value)
                     other_best_score = [x.get('score') for x in other_matching_list]
                     other_best_name = [y.get('name') for y in other_matching_list]
                     other_best_match = other_best_name[other_best_score.index(max(other_best_score))]
