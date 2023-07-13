@@ -69,12 +69,11 @@ def display(user_username: str, user_id: str, users_count: int, all_users: list,
                     other_best_score = [x.get('score') for x in other_matching_list]
                     other_best_name = [y.get('name') for y in other_matching_list]
                     other_best_match = other_best_name[other_best_score.index(max(other_best_score))]
-                    collection.update(other_id, {"matching_list": other_matching_list, "bestMatch": other_best_match})
                     var.other_usernames.append(other)
                     var.scores.append(score)
-            best_match_username = meth.extractUsername(all_users[list(matching_rates[i]).index(best_match)])
-            collection.update(user_id, {"bestMatch": best_match_username, "matching_list": matching_list})
-            var.best_match = best_match_username
+                    collection.update(other_id, {"matching_list": other_matching_list, "bestMatch": other_best_match})
+            var.best_match = meth.extractUsername(all_users[list(matching_rates[i]).index(best_match)])
+            collection.update(user_id, {"bestMatch": var.best_match, "matching_list": matching_list})
 
 
 @app.route('/')

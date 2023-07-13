@@ -47,7 +47,7 @@ function onSubmit() {
         spinnerIcon.style.display = "none";
         buttonText.classList.remove("hidden");
         loadModal();
-    }, 10000);
+    }, 7000);
 }
 
 function loadModal() {
