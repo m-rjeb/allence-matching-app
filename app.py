@@ -143,16 +143,16 @@ def get_index_modal_username():
     data = request.get_json()
     username = data.get('existUsername')
     user = collection.findByUsername(username)
-    
+
     if user is None:
         return render_template('error.html', username=username)
-    
+
     matching_users = user.get("matching_list")
     other_usernames = [entry['name'] for entry in matching_users]
     scores = [entry['score'] for entry in matching_users]
     length = len(matching_users)
     best_match = user.get("bestMatch")
-    
+
     return render_template(
         'results-modal.html', length=length, scores=scores,
         best_match=best_match, other_usernames=other_usernames)
