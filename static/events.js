@@ -27,6 +27,7 @@ function buttonClicked(button, questionIndex) {
 }
 
 function onSubmit() {
+    console.log("onSubmit")
     var button = document.getElementById("resultsBtn");
     var spinnerIcon = document.getElementById("spinnerIcon");
     var buttonText = document.getElementById("buttonText");
@@ -40,7 +41,14 @@ function onSubmit() {
     // Perform your desired action here
     xhr.open("POST", "/results", true);
     xhr.setRequestHeader("Content-Type", "application/json");
+    console.log("JSON response");
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+            console.log("Sucessfully sent results")
+        }
+    };
     xhr.send();
+    console.log("Sucessfully sent results 22222222")
 
     setTimeout(function () {
         button.disabled = false; // Enable the button again
@@ -54,13 +62,17 @@ function loadModal() {
     const xhr = new XMLHttpRequest();
     xhr.open("POST", "/modal", true);
     xhr.onreadystatechange = function () {
+        console.log("load modal")
         if (xhr.readyState === 4 && xhr.status === 200) {
+            console.log("Sucessfully sent results 33333333333333")
             document.getElementById("modalPlaceholder").innerHTML = xhr.responseText;
             const modal = new bootstrap.Modal(document.getElementById("staticBackdrop"));
             modal.show();
+            console.log("Sucessfully loaded modal")
         }
     };
     xhr.send();
+    console.log("Sucessfully sent results 44444444444444")
 }
 
 function redirectToLogin() {

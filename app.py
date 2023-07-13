@@ -35,8 +35,7 @@ def update_answers():
 def match():
     all_users = list(collection.findAll())
     users_count = len(all_users)
-    # Calculate matching rates between users
-    matching_rates = np.zeros((users_count, users_count))  # Initialize a matrix to store the matching rates
+    matching_rates = np.zeros((users_count, users_count))
     for row in range(users_count):
         for col in range(users_count):
             if row != col:
@@ -66,12 +65,10 @@ def display(user_username: str, user_id: str, users_count: int, all_users: list,
                     other_best_name = [y.get('name') for y in other_matching_list]
                     other_best_match = other_best_name[other_best_score.index(max(other_best_score))]
                     collection.update(other_id, {"matching_list": other_matching_list, "bestMatch": other_best_match})
-                    # print(f"{user_username} && {other}: {score}%")
                     var.other_usernames.append(other)
                     var.scores.append(score)
             best_match_username = meth.extractUsername(all_users[list(matching_rates[i]).index(best_match)])
             collection.update(user_id, {"bestMatch": best_match_username, "matching_list": matching_list})
-            # print(f'best match for {user_username} is {best_match_username}')
             var.best_match = best_match_username
 
 
@@ -107,7 +104,6 @@ def button_clicked():
 
 @app.route('/results', methods=['POST'])
 def on_submit():
-    # updated, rates = asyncio.gather(update_answers(), match())
     updated = update_answers()
     if updated:
         users, users_count, matching_rates = match()
@@ -116,7 +112,8 @@ def on_submit():
             user_username=var.user_username,
             users_count=users_count,
             all_users=users,
-            matching_rates=matching_rates)
+            matching_rates=matching_rates,
+        )
     return ''
 
 
