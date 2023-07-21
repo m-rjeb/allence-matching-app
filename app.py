@@ -25,7 +25,7 @@ def checkUserAvailability(username: str) -> dict:
 def update_answers():
     try:
         var.answers = dict(sorted(var.answers.items()))
-        collection.update(document_id=var.user_id, data={'answers': list(var.answers.values())})
+        _ = collection.update(document_id=var.user_id, data={'answers': list(var.answers.values())})
         return True
     except:
         app.logger.error('An error occurred while updating')
@@ -84,7 +84,7 @@ def index():
 @app.route('/form', methods=['POST'])
 def form():
     username = request.form['username']
-    user = checkUserAvailability(username.strip())
+    user = checkUserAvailability(username.strip().lower())
     var.user_id, var.user_username = user.get("_id"), user.get("username")
     data = get_json_data("assets/questions.json")
     return render_template('form.html', data=data, username=var.user_username)
@@ -143,7 +143,7 @@ def index_modal():
 def get_index_modal_username():
     data = request.get_json()
     username = data.get('existUsername')
-    user = collection.findByUsername(username.strip())
+    user = collection.findByUsername(username.strip().lower())
 
     if user is None:
         return render_template('error.html', username=username)

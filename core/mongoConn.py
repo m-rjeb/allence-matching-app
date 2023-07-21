@@ -1,16 +1,13 @@
 from bson.objectid import ObjectId
 from pymongo import MongoClient
-#from motor.motor_o import OMotorClient
 from pymongo.server_api import ServerApi
 
 
 class Connection:
-    #__client: OMotorClient
     __client: MongoClient
 
     def __init__(self, connection_uri) -> None:
         self.connection_url = connection_uri
-        #self.__client = OMotorClient(host=self.connection_url, server_api=ServerApi('1'))
         self.__client = MongoClient(host=self.connection_url, server_api=ServerApi('1'))
 
     def use_db(self, db_name):
