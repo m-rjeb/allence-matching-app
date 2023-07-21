@@ -1,10 +1,10 @@
 class Vars:
     user_username: str
     user_id: str
+    best_match: str
     answers: dict = {}
     other_usernames: list[str] = []
     scores: list[float] = []
-    best_match: str
     
     CONNECTION_URI = "mongodb+srv://helloworld:helloworld123@pymongo.mtdg3j5.mongodb.net/"
     DB_NAME = "personality"

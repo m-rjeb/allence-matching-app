@@ -1,4 +1,5 @@
 import json
+import time
 import numpy as np
 from flask import Flask, render_template, request
 from sklearn.metrics.pairwise import cosine_similarity
