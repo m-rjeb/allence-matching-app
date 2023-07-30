@@ -1,3 +1,81 @@
+<!-- Results modal after tooking the test -->
+<!--
+<div
+    class="modal fade"
+    id="staticBackdrop"
+    data-bs-backdrop="static"
+    data-bs-keyboard="false"
+    tabindex="-1"
+    aria-labelledby="staticBackdropLabel"
+    aria-hidden="true"
+>
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="staticBackdropLabel">Your Results</h1>
+            </div>
+            <div class="modal-body">
+                <span>Best match for you is: <strong>{{best_match}}</strong></span>
+                <div>
+                    Other rates:
+                    <ul>
+                        {% for index in range(length) %}
+                        <li>
+                            <span> You & {{other_usernames[index]}} :</span>
+                            <div
+                                class="progress"
+                                role="progressbar"
+                                aria-label="Success striped example"
+                                aria-valuenow="{{scores[index]}}"
+                                aria-valuemin="0"
+                                aria-valuemax="100"
+                                style="height: 20px"
+                            >
+                                {% if scores[index] <= 25 %}
+                                <div
+                                    class="progress-bar progress-bar-striped bg-danger"
+                                    style="width: {{scores[index]}}%; font-size: 15px; font-weight: 600; height: 20px"
+                                >
+                                    {{scores[index]}}%
+                                </div>
+                                {% elif 25 < scores[index] <= 50%}
+                                <div
+                                    class="progress-bar progress-bar-striped bg-warning"
+                                    style="width: {{scores[index]}}%; font-size: 15px; font-weight: 600; height: 20px"
+                                >
+                                    {{scores[index]}}%
+                                </div>
+                                {% elif 50 < scores[index] <= 75%}
+                                <div
+                                    class="progress-bar progress-bar-striped bg-info"
+                                    style="width: {{scores[index]}}%; font-size: 15px; font-weight: 600; height: 20px"
+                                >
+                                    {{scores[index]}}%
+                                </div>
+                                {% else %}
+                                <div
+                                    class="progress-bar progress-bar-striped bg-success"
+                                    style="width: {{scores[index]}}%; font-size: 15px; font-weight: 600; height: 20px"
+                                >
+                                    {{scores[index]}}%
+                                </div>
+                                {% endif %}
+                            </div>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-bs-dismiss="modal" onclick="redirectToLogin()">
+                    Thanks!
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+-->
+
 <!DOCTYPE html>
 <html>
     <head>
