@@ -56,9 +56,8 @@ function loadModal() {
     xhr.onreadystatechange = function () {
         if (xhr.readyState === 4 && xhr.status === 200) {
             document.getElementById("modalPlaceholder").innerHTML = xhr.responseText;
-            /* const modal = new bootstrap.Modal(document.getElementById("staticBackdrop"));
-            modal.show(); */
-            window.location.href = "/modal";
+            const modal = new bootstrap.Modal(document.getElementById("staticBackdrop"));
+            modal.show();
         }
     };
     xhr.send();
