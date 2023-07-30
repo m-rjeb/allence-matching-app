@@ -122,7 +122,7 @@ def on_submit():
     return ''
 
 
-@app.route('/modal', methods=['POST'])
+@app.route('/modal', methods=['POST','GET'])
 def show_modal():
     length = len(var.other_usernames)
     return render_template('modal.html', length=length, scores=var.scores, best_match=var.best_match,
