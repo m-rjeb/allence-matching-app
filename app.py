@@ -1,5 +1,4 @@
 import json
-import time
 import numpy as np
 from flask import Flask, render_template, request
 from sklearn.metrics.pairwise import cosine_similarity
@@ -18,7 +17,7 @@ collection.use_collection(collection_name=var.COLLECTION_NAME)
 def checkUserAvailability(username: str) -> dict:
     user = collection.findByUsername(username)
     if user is None:
-        id = collection.create({'username': username})
+        id = collection.create({"username": username, "answers": [], "bestMatch": "", "matching_list": [{},]})
         user = collection.findById(id)
     return user
 
@@ -122,7 +121,7 @@ def on_submit():
     return ''
 
 
-@app.route('/modal', methods=['POST','GET'])
+@app.route('/modal', methods=['POST', 'GET'])
 def show_modal():
     length = len(var.other_usernames)
     return render_template('modal.html', length=length, scores=var.scores, best_match=var.best_match,
@@ -161,4 +160,4 @@ def get_index_modal_username():
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=False)
