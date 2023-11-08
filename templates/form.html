@@ -38,7 +38,7 @@
                             class="custom-button btn btn-danger"
                             onclick="buttonClicked(this, {{ loop.index }})"
                             style="width: 80px; height: 80px"
-                            value="0"
+                            value="1"
                         ></button>
                         <button
                             type="button"
@@ -102,20 +102,13 @@
                 </div>
             </div>
             <div class="d-grid gap-2 col-6 mx-auto">
-                <button
-                    class="btn btn-warning"
-                    type="submit"
-                    id="resultsBtn"
-                    onclick="onSubmit()"
-                >
+                <button class="btn btn-warning" type="submit" id="resultsBtn" onclick="onSubmit()">
                     <span id="spinnerIcon" class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
                     <span id="buttonText">Get Results</span>
                 </button>
             </div>
-
-            
         </div>
         <!-- Placeholder for the modal -->
-            <div id="modalPlaceholder"></div>
+        <div id="modalPlaceholder"></div>
     </body>
 </html>
