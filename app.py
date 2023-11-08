@@ -11,7 +11,10 @@ from helpers.vars import Vars as var
 app = Flask(__name__)
 app.secret_key = var.app_secret_key
 
-database = Connection(connection_uri=var.CONNECTION_URI).use_db(db_name=var.DB_NAME)
+# init db
+database = Connection(connection_uri=var.CONNECTION_URI)
+database.use_db(db_name=var.DB_NAME)
+# init collection
 collection = Collections(db=database)
 collection.use_collection(collection_name=var.COLLECTION_NAME)
 
@@ -105,6 +108,7 @@ def display(
             collection.update(
                 user_id, {"bestMatch": var.best_match, "matching_list": matching_list}
             )
+    database.close_connection()
 
 
 @app.route("/")
